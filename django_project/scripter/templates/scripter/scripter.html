@@ -1,0 +1,152 @@
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'scripter/style.css' %}">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+​
+</head>
+<body>
+    <div class="card rare-wind-gradient chat-room">
+    <div class="card-body">
+  
+      <!-- Grid row -->
+      <div class="row px-lg-2 px-2">
+        <!-- Grid column -->
+        <div class="col-md-12 col-xl-8 pl-md-3 px-lg-auto px-0">
+  
+          <div>
+            <ul class="chat-1 scrollbar-light-blue" id = "role_list">
+              <!-- <li class="d-flex justify-content-between mb-4">
+                <div class="header">
+                    <strong class="primary-font">Brad Pitt</strong>
+                  </div><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
+                <div class="chat-body white p-3 ml-2 z-depth-1">
+                  <p class="mb-0">  
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </li>
+​
+              <li class="d-flex justify-content-between mb-4">
+                <div class="chat-body white p-3 z-depth-1">
+                  <div class="header">
+                    <strong class="primary-font">Lara Croft</strong>
+                  </div>
+                  
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" alt="avatar" class="avatar rounded-circle mr-0 ml-3 z-depth-1"><p class="mb-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium.
+                  </p>
+                </div>
+              </li>
+​
+              <li class="d-flex justify-content-between mb-4">
+                <div class="chat-body white p-3 ml-2 z-depth-1">
+                  <div class="header">
+                    <strong class="primary-font">Brad Pitt</strong>
+                  </div>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"><p class="mb-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </li>
+​
+              <li class="d-flex justify-content-between mb-4">
+                <div class="chat-body white p-3 z-depth-1">
+                  <div class="header">
+                    <strong class="primary-font">Lara Croft</strong>
+                  </div>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" alt="avatar" class="avatar rounded-circle mr-0 ml-3 z-depth-1"><p class="mb-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium.
+                  </p>
+                </div>
+              </li>
+​
+              <li class="d-flex justify-content-between mb-4 pb-3">
+                <div class="chat-body white p-3 ml-2 z-depth-1">
+                  <div class="header">
+                    <strong class="primary-font">Brad Pitt</strong>
+                  </div>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"><p class="mb-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </li> -->
+            </ul>
+            <div class="white">
+              <div class="form-group basic-textarea" style="width: 50%; margin-left: 25%">
+                <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3" placeholder="Type here"></textarea>
+              </div>
+            </div>
+            <div>
+            <button id = "but" type="button" class="btn btn-outline-pink btn-rounded btn-sm waves-effect waves-dark" onclick="send()" style="display: inline-block; margin-left: 25%">Submit</button>
+                    <div  class="dropdown" style="display: inline-block">
+                      <select style="text-align:center; margin-left: 50%" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" class="dropdown-menu" id="ddlViewBy">
+                            <option value="1">Hero</option>
+                            <option value="2" selected="selected">Heroine</option>
+                            <option value="3">Mother</option>
+                          </select>
+                    </div>
+                </div>
+          </div>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+  </div></body>
+  <script >
+        // Get the input field
+  // var input = document.getElementById("exampleFormControlTextarea2");
+  
+  // Execute a function when the user releases a key on the keyboard
+  document.getElementById("exampleFormControlTextarea2").addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("but").click();
+    }
+  });
+      //  var family = {"role": {"name": 'Aaron', "dialouge": 'ajshdjhsajdhasjkhdkjashdjhasjdhjasdjhasjdhjsahdhjashdhasjdjhs'}};
+   function send() {
+      // console.log(family["role"]);
+  
+      // for (var role in family) {
+      //     console.log(role["name"]);
+      var dialouge = document.getElementById("exampleFormControlTextarea2").value;
+      var URL = "{% url 'submitdata' %}";
+  
+      var e = document.getElementById("ddlViewBy");
+      var strUser = e.options[e.selectedIndex].text;
+      var image = ''
+      if(strUser=="Hero") {
+          image = '{% static "scripter/hero.jpg" %}';
+      }else if(strUser == "Heroine"){
+          image = '{% static "scripter/heroine.jpg" %}';
+      }else{
+          image = '{% static "scripter/mother.jpg" %}';
+      }
+        document.getElementById('role_list').innerHTML += '<div class="header"><strong class="primary-font">' + strUser + '</strong></div><img src='+ image + ' alt="avatar" style = "vertical-align:middle; display:inline-block; width: 75px; height: 75px; border-radius:50%;" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1"><div style="display:inline-block; margin-left:25px" class="chat-body white p-3 ml-2 z-depth-1"><p class="mb-0">'+ dialouge +'</p></div>';
+        var data = {'dialogue': dialouge,'character':strUser,'csrfmiddlewaretoken':'{{ csrf_token }}'};
+    $.post(URL, data, function(response){
+        // if(response === 'success'){ alert('Yay!'); }
+        // else{ alert('Error! :('); }
+    });
+   }
+  
+  </script>
+  </html>
