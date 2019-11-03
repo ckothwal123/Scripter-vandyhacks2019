@@ -52,8 +52,3 @@ def text_speech(database):
     for inF in infiles:
         final_audio = final_audio + AudioSegment.from_mp3(inF)
     final_audio.export("final.mp3", format="mp3")
-    # destination = open('everything.mp3', 'wb')
-    # for filename in iglob(os.path.join("E:\vandyHacks\text-speech\processed_speech", '*.mp3')):
-    #     shutil.copyfileobj(open(filename, 'rb'), destination)
-    # # make them all together with for
-    # destination.close()
