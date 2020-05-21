@@ -9,7 +9,7 @@ User logs in and enters the number of roles in the play. Then user is prompted t
 
 Technical Details:
 
-Input the dialogues of the script from the user in a form and then send it to the database once the script is complete. (React.js)
+Input the dialogues of the script from the user in a form and then send it to the database once the script is complete. 
 
 Retrieve the dialogues from the database and send to Google API to convert from text to speech. Save the processed speech and stitch it together. (Django Application)
 
