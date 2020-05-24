@@ -1,4 +1,4 @@
-# vandyhacks2019
+# Scripter
 Repository for Vandyhacks 2019
 
 Scripter
